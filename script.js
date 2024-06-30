@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Copy contract address functionality
     if (contractAddressElement && copyAddressButton) {
-        const contractAddress = 'Loading...'; // Replace with actual address
+        const contractAddress = 'EQArSK7T91lC5NCqPqbgLU3DNoSbbbAJoFPhjwfi-cEEWHEY'; // Replace with actual address
         contractAddressElement.textContent = contractAddress;
 
         copyAddressButton.addEventListener('click', function() {
