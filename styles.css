@@ -247,6 +247,7 @@ main {
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 #contract-address {
@@ -254,10 +255,12 @@ main {
     padding: 1rem;
     border-radius: 8px;
     font-family: monospace;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Slightly reduce font size */
     margin-right: 0.5rem;
     flex-grow: 1;
     text-align: center;
+    word-break: break-all; /* Allow long addresses to break */
+    max-width: 100%; /* Ensure it doesn't exceed container width */
 }
 
 #copy-address {
@@ -266,6 +269,8 @@ main {
     cursor: pointer;
     color: var(--primary-color);
     transition: color 0.3s ease;
+    padding: 0.5rem; /* Add some padding for easier tapping on mobile */
+    margin-top: 0.5rem; /* Add space between address and button on wrap */
 }
 
 #copy-address:hover {
@@ -630,5 +635,19 @@ footer {
 
     #key-info h3 {
         font-size: 1.25rem;
+    }
+
+    .contract-address-container {
+        flex-direction: column; /* Stack items vertically on very small screens */
+    }
+
+    #contract-address {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+        font-size: 0.8rem; /* Further reduce font size on very small screens */
+    }
+
+    #copy-address {
+        margin-top: 0.5rem;
     }
 }
