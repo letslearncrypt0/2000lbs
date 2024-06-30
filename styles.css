@@ -135,6 +135,15 @@ nav {
     transform: scaleX(1);
 }
 
+/* New styles for icon links */
+.nav-links li a.icon-link::after {
+    display: none; /* Remove the underline effect for icon links */
+}
+
+.nav-links li a.icon-link:hover {
+    opacity: 0.8; /* Add a subtle hover effect for icon links */
+}
+
 #price-ticker {
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
@@ -195,6 +204,8 @@ main {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    display: inline-block; /* Add this line */
+    text-decoration: none; /* Add this line */
 }
 
 .cta-button:hover {
