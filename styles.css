@@ -1,9 +1,11 @@
 :root {
-    --primary-color: #0088cc;
-    --secondary-color: #ffcc00;
+    --primary-color: #1E3A8A;
+    --secondary-color: #FFD700;
     --text-color: #333;
-    --background-color: #f4f4f4;
-    --accent-color: #ff6600;
+    --background-color: #F0F4F8;
+    --accent-color: #3B82F6;
+    --gradient-start: #1E3A8A;
+    --gradient-end: #3B82F6;
 }
 
 * {
@@ -13,18 +15,34 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
 header {
-    background-color: var(--primary-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     z-index: 1000;
+    transition: background 0.3s ease;
 }
 
 nav {
@@ -36,34 +54,52 @@ nav {
     margin: 0 auto;
 }
 
-/* Icon size and margin */
 .nav-icon {
-    width: 32px; /* Adjust the size as needed */
+    width: 32px;
     height: 32px;
     margin-left: 1rem;
-    vertical-align: middle; /* Align icons vertically with the text */
-    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth hover effect */
+    vertical-align: middle;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Hover effect for icons */
 .nav-icon:hover {
-    transform: scale(1.2); /* Slightly enlarge the icon on hover */
-    filter: brightness(1.2); /* Brighten the icon on hover */
+    transform: scale(1.2);
+    filter: brightness(1.2);
 }
 
-.logo {
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
     font-size: 1.8rem;
     font-weight: bold;
-    color: var(--background-color);
+    color: white;
+    margin-right: 0.5rem;
+}
+
+.ton-logo {
+    height: 45px;
+    width: auto;
+    margin-top: -5px;
+    margin-left: -5px;
 }
 
 .hamburger {
     display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
-    color: white;
     cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
 .nav-links {
@@ -72,7 +108,7 @@ nav {
 }
 
 .nav-links li {
-    margin-left: 1rem;
+    margin-left: 1.5rem;
 }
 
 .nav-links li a {
@@ -80,20 +116,41 @@ nav {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+    position: relative;
 }
 
-.nav-links li a:hover {
-    color: var(--secondary-color);
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--secondary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    transform: scaleX(1);
+}
+
+#price-ticker {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
 main {
-    padding-top: 60px; /* To account for fixed header */
+    padding-top: 100px;
 }
 
 .hero {
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     color: white;
-    padding: 4rem 1rem;
+    padding: 6rem 1rem;
     text-align: center;
 }
 
@@ -106,68 +163,101 @@ main {
     max-width: 100%;
     height: auto;
     margin-bottom: 2rem;
-    animation: float 3s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 2rem;
+    opacity: 0.9;
 }
 
 .cta-button {
     background-color: var(--secondary-color);
     color: var(--text-color);
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     border: none;
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: 50px;
     transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .cta-button:hover {
-    background-color: #ffd700;
+    background-color: #FFE55C;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.content-section {
+    padding: 6rem 1rem;
+    background-color: white;
+    margin-bottom: 2rem;
+}
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content-section h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.content-section h3 {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.content-section p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
 #key-info {
-    background-color: white;
-    padding: 3rem 1rem;
-    margin: 2rem auto;
+    background-color: #f8fafc;
+    padding: 3rem 2rem;
+    margin: 3rem auto;
     max-width: 800px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .contract-address-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 #contract-address {
-    background-color: #f0f0f0;
-    padding: 0.5rem;
-    border-radius: 5px;
+    background-color: #e2e8f0;
+    padding: 1rem;
+    border-radius: 8px;
     font-family: monospace;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-right: 0.5rem;
+    flex-grow: 1;
+    text-align: center;
 }
 
 #copy-address {
@@ -175,6 +265,7 @@ main {
     border: none;
     cursor: pointer;
     color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
 #copy-address:hover {
@@ -200,82 +291,39 @@ main {
     color: var(--accent-color);
 }
 
-.content-section {
-    padding: 4rem 1rem;
-    background-color: white;
-}
-
-.section-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.content-section h2 {
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.content-section h3 {
-    color: var(--text-color);
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.content-section p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.content-section ul, .content-section ol {
-    margin-bottom: 1rem;
-    padding-left: 2rem;
-}
-
-.content-section li {
-    margin-bottom: 0.5rem;
-}
-
-.content-section strong {
-    color: var(--accent-color);
-}
-
-
-/* Tokenomics Grid Styles */
 .tokenomics-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .tokenomics-item {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    padding: 2rem;
+    background-color: #f8fafc;
+    border-radius: 15px;
+    padding: 2.5rem;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tokenomics-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .tokenomics-number {
-    font-size: 5.5rem;
+    font-size: 2.8rem;
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
 .tokenomics-title {
-    font-size: 3rem;
+    font-size: 1.2rem;
     color: var(--text-color);
+    font-weight: 500;
 }
-
 
 #how-to-buy ol {
     counter-reset: step-counter;
@@ -285,8 +333,8 @@ main {
 
 #how-to-buy li {
     counter-increment: step-counter;
-    margin-bottom: 1rem;
-    padding-left: 3rem;
+    margin-bottom: 2rem;
+    padding-left: 4rem;
     position: relative;
 }
 
@@ -298,15 +346,75 @@ main {
     background-color: var(--secondary-color);
     color: var(--text-color);
     font-weight: bold;
-    padding: 0.25rem 0.75rem;
+    padding: 0.5rem 1rem;
     border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+.roadmap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.roadmap-item {
+    flex-basis: calc(50% - 1.5rem);
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: #f8fafc;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.roadmap-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.roadmap-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.roadmap-item ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.roadmap-item li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.roadmap-item li::before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.roadmap-image-container {
+    max-width: 100%;
+    text-align: center;
+}
+
+.roadmap-image {
+    max-width: 100%;
+    height: auto;
 }
 
 footer {
-    background-color: var(--primary-color);
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
     color: white;
-    padding: 2rem 1rem;
-    margin-top: 2rem;
+    padding: 4rem 1rem;
 }
 
 .footer-content {
@@ -318,11 +426,12 @@ footer {
 }
 
 .footer-section {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .footer-section h3 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
 }
 
 .footer-section ul {
@@ -330,16 +439,106 @@ footer {
 }
 
 .footer-section ul li {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
 }
 
 .footer-section a {
     color: white;
     text-decoration: none;
+    transition: opacity 0.3s ease;
 }
 
 .footer-section a:hover {
-    text-decoration: underline;
+    opacity: 0.8;
+}
+
+#newsletter-form {
+    display: flex;
+    margin-top: 1rem;
+}
+
+#newsletter-form input[type="email"] {
+    flex-grow: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+}
+
+#newsletter-form button {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#newsletter-form button:hover {
+    background-color: #FFE55C;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#back-to-top:hover {
+    background-color: #FFE55C;
+    transform: translateY(-3px);
+}
+
+#back-to-top svg {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+/* Fade-in effect styles */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -347,15 +546,36 @@ footer {
         display: block;
     }
 
+    .hamburger span:nth-child(1) {
+        transform: translateY(-8px);
+    }
+
+    .hamburger span:nth-child(3) {
+        transform: translateY(8px);
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(0) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(0) rotate(-45deg);
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px;
+        top: 80px;
         left: 0;
-        background-color: var(--primary-color);
-        padding: 1rem;
+        background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
+        padding: 2rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
     .nav-links.show {
@@ -363,7 +583,7 @@ footer {
     }
 
     .nav-links li {
-        margin: 0.5rem 0;
+        margin: 1rem 0;
     }
 
     .hero h1 {
@@ -382,6 +602,14 @@ footer {
         font-size: 1rem;
     }
 
+    .tokenomics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .roadmap-item {
+        flex-basis: 100%;
+    }
+
     .footer-content {
         flex-direction: column;
     }
@@ -396,23 +624,11 @@ footer {
         font-size: 1rem;
     }
 
-    #key-info h2 {
+    .content-section h2 {
+        font-size: 1.75rem;
+    }
+
+    #key-info h3 {
         font-size: 1.25rem;
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .tokenomics-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .tokenomics-number {
-        font-size: 2rem;
-    }
-
-    .tokenomics-title {
-        font-size: 0.9rem;
     }
 }

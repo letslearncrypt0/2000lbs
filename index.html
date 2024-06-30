@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2000lbs - The Heaviest Memecoin on $TON</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">2000lbs on $TON</div>
-            <button class="hamburger" aria-label="Toggle menu">☰</button>
+            <div class="logo-container">
+                <span class="logo-text">2000lbs on</span>
+                <img src="assets/images/ton_.png" alt="TON Logo" class="ton-logo">
+            </div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#weight-room">Links</a></li>
+                <!-- <li><a href="#about">About</a></li> -->
                 <li><a href="#tokenomics">Tokenomics</a></li>
                 <li><a href="#how-to-buy">How to Buy</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="https://t.me/+wu3YNCx9BlhkZWIx" target="_blank" rel="noopener noreferrer" class="icon-link">
                     <img src="assets/images/telegram_.png" alt="Telegram" class="nav-icon">
                 </a></li>
@@ -25,90 +33,102 @@
                 </a></li>
             </ul>
         </nav>
+        <div id="price-ticker">
+            <span>2000lbs: <span id="current-2000lbs-price">Loading...</span></span>
+            <span>TON: <span id="current-ton-price">Loading...</span></span>
+        </div>
     </header>
 
     <main>
         <section id="home" class="hero">
             <div class="hero-content">
-                <img src="assets/images/1ton.png" alt="One Ton Weight" class="hero-image">
-                <h1>The heaviest memecoin on $TON</h1>
-                <p>2000lbs = 1 TON: We're not just a coin, we're a full TON of fun!</p>
-                <button class="cta-button">Buy Now</button>
+                <img src="assets/images/1ton.png" alt="Modern Weight Set" class="hero-image">
+                <h1>The Heaviest Memecoin on $TON</h1>
+                <h2>2000 lbs = 1 TON</h2>
+                <button class="cta-button">Convert to Pounds Now</button>
             </div>
         </section>
 
-        <section id="weight-room" class="content-section">
-        <div class="section-content">
-            <h2>🏋️ Weight Room 🏋️</h2>
-            <h3>Everything you need to get started on your journey to repping $2000lbs</h3>
-            <section id="key-info">
-                <h3><center>👇 Contract Address 👇</center></h3>
-                <div class="contract-address-container">
-                <p id="contract-address">0x1234567890123456789012345678901234567890</p>
-                <button id="copy-address" aria-label="Copy contract address">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                </button>
+        <section id="weight-room" class="content-section fade-in-section">
+            <div class="section-content">
+                <h2>Powerhouse Essentials</h2>
+                <h3>Everything you need to start your 2000lbs journey</h3>
+                <div id="key-info">
+                    <h3>🗎 Contract Address 🗎</h3>
+                    <div class="contract-address-container">
+                        <p id="contract-address">0x1234567890123456789012345678901234567890</p>
+                        <button id="copy-address" aria-label="Copy contract address">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="external-links">
+                        <a href="#" target="_blank" rel="noopener noreferrer">DEXScreener</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">TON Explorer</a>
+                        <a href="https://t.me/+wu3YNCx9BlhkZWIx" target="_blank" rel="noopener noreferrer">Telegram</a>
+                        <a href="https://x.com/2000lbs_token" target="_blank" rel="noopener noreferrer">Twitter</a>
+                    </div>
                 </div>
-                <div class="external-links">
-                    <a href="#" target="_blank" rel="noopener noreferrer">DEXScreener</a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">TON Explorer</a>
-                    <a href="https://t.me/+wu3YNCx9BlhkZWIx" target="_blank" rel="noopener noreferrer">Telegram</a>
-                    <a href="https://x.com/2000lbs_token" target="_blank" rel="noopener noreferrer">Twitter</a>
-                </div>
-            </section>
-        </div>
+            </div>
         </section>
 
-<!--         <section id="about" class="content-section">
+<!--         <section id="about" class="content-section fade-in-section">
             <div class="section-content">
                 <h2>About 2000lbs</h2>
-                <p>2000lbs is not just another memecoin – it's a heavyweight champion in the cryptocurrency world. Born from the idea that bigger is better, 2000lbs aims to bring some serious weight to your portfolio and a ton of fun to the crypto community.</p>
-                <p>Our mission is to create a strong, engaged community around a token that's as solid as it is entertaining. With 2000lbs, we're proving that even in the world of digital assets, there's room for something with a bit more... gravity.</p>
+                <p>2000lbs isn't just another memecoin – it's a powerhouse in the cryptocurrency world. Born from the idea that strength lies in innovation, 2000lbs aims to bring substantial weight to your portfolio and unparalleled excitement to the crypto community.</p>
+                <p>Our mission is to create a robust, engaged community around a token that's as solid as it is revolutionary. With 2000lbs, we're proving that even in the world of digital assets, there's room for something with real, tangible impact.</p>
             </div>
         </section> -->
 
-        <section id="tokenomics" class="content-section">
+        <section id="tokenomics" class="content-section fade-in-section">
             <div class="section-content">
-                <h2>📈 Tokenomics 📈</h2>
-                <h3>Aquiring 2000lbs may make your wallet too heavy to sell</h3>
-                    <div class="tokenomics-grid">
+                <h2>Tokenomics</h2>
+                <h3>Designing for strength, building for longevity</h3>
+                <div class="tokenomics-grid">
                     <div class="tokenomics-item">
                         <p class="tokenomics-number">1000M</p>
-                        <p class="tokenomics-title">Total Supply</p>
+                        <p class="tokenomics-title">💎 Total Supply</p>
                     </div>
                     <div class="tokenomics-item">
-                        <p class="tokenomics-number">800M</p>
-                        <p class="tokenomics-title">Circulating Supply</p>
+                        <p class="tokenomics-number">xxx</p>
+                        <p class="tokenomics-title">🔄 Circulating Supply</p>
                     </div>
                     <div class="tokenomics-item">
-                        <p class="tokenomics-number">200B</p>
-                        <p class="tokenomics-title">Liquidity Pool</p>
+                        <p class="tokenomics-number">xxx</p>
+                        <p class="tokenomics-title">💧 Liquidity Pool</p>
                     </div>
                     <div class="tokenomics-item">
-                        <p class="tokenomics-number">200M</p>
-                        <p class="tokenomics-title">Burned</p>
+                        <p class="tokenomics-number">xxx</p>
+                        <p class="tokenomics-title">🔥 Burned</p>
                     </div>
                 </div>
-                <p>Our tokenomics are designed to ensure a fair distribution and long-term sustainability of the 2000lbs ecosystem. With a strong focus on community ownership and liquidity, we're building a foundation as solid as our name suggests.</p>
+                <!-- <p>Our tokenomics are meticulously designed to ensure fair distribution and long-term sustainability of the 2000lbs ecosystem. With a strong focus on community ownership and liquidity, we're building a foundation as unshakeable as our name suggests.</p> -->
             </div>
         </section>
 
-        <section id="how-to-buy" class="content-section">
+        <section id="how-to-buy" class="content-section fade-in-section">
             <div class="section-content">
-                <h2>💲 How to Buy 2000lbs 💲</h2>
-                <h3>Ready to lift? Its time to get those gains!</h3>
+                <h2>How to Invest in 2000lbs</h2>
+                <h3>Join the 2000lbs powerhouse in four simple steps</h3>
                 <ol>
-                    <li><strong>Set up a TON wallet:</strong> Download and set up a TON-compatible wallet like <a href="https://tonkeeper.com/" target="_blank" rel="noopener noreferrer">TonKeeper</a></li>
-                    <li><strong>Get some TON:</strong> Purchase TON from a major exchange or <a href="https://app.rocketx.exchange/?ref=LK8SZT42" target="_blank" rel="noopener noreferrer">bridge it</a> it to your TON wallet.</li>
-                    <li><strong>Swap TON for 2000lbs:</strong> Use the <a href="https://dedust.io/swap/" target="_blank" rel="noopener noreferrer">DEX to swap</a> your TON for 2000lbs tokens.</li>
-                    <li><strong>HODL and enjoy:</strong> Congratulations! You're now a proud owner of the heaviest memecoin on TON!</li>
+                    <li class="fade-in-item"><strong>Set up a TON wallet:</strong> Download and set up a TON-compatible wallet like <a href="https://tonkeeper.com/" target="_blank" rel="noopener noreferrer">TonKeeper</a></li>
+                    <li class="fade-in-item"><strong>Acquire TON:</strong> Purchase TON from a major exchange or <a href="https://app.rocketx.exchange/?ref=LK8SZT42" target="_blank" rel="noopener noreferrer">bridge it</a> to your TON wallet.</li>
+                    <li class="fade-in-item"><strong>Swap TON for 2000lbs:</strong> Use the <a href="https://dedust.io/swap/" target="_blank" rel="noopener noreferrer">DEX to swap</a> your TON for 2000lbs tokens.</li>
+                    <li class="fade-in-item"><strong>HODL and prosper:</strong> Congratulations! You're now part of the 2000lbs powerhouse.</li>
                 </ol>
             </div>
         </section>
 
+        <section id="roadmap" class="content-section fade-in-section">
+            <div class="section-content">
+                <h2>Roadmap</h2>
+                <div class="roadmap-image-container">
+                    <img src="assets/images/pounds.png" alt="Keep Calm and Buy Pounds" class="roadmap-image">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -117,9 +137,10 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#weight-room">Weight Room</a></li>
+                    <!-- <li><a href="#about">About</a></li> -->
                     <li><a href="#tokenomics">Tokenomics</a></li>
                     <li><a href="#how-to-buy">How to Buy</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -130,11 +151,26 @@
                 </ul>
             </div>
             <div class="footer-section">
-                <p>&copy; 2024 2000lbs. All rights reserved.</p>
+                <h3>Stay Updated</h3>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 2000lbs. All rights reserved.</p>
+            <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
         </div>
     </footer>
 
+    <button id="back-to-top" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
